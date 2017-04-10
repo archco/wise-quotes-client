@@ -1,0 +1,23 @@
+{
+  "name": "wise-quotes-client",
+  "version": "0.1.0",
+  "description": "The package of wise-saying and quotes. It's for browser.",
+  "main": "index.js",
+  "scripts": {
+    "test": "node ./node_modules/mocha/bin/mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/archco/wise-quotes-client.git"
+  },
+  "author": "archco",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/archco/wise-quotes-client/issues"
+  },
+  "homepage": "https://github.com/archco/wise-quotes-client#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0"
+  }
+}
