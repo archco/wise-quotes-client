@@ -3,9 +3,7 @@ const should = chai.should();
 
 // test target.
 const WiseQuotesClient = require('../index.js');
-let wqc = new WiseQuotesClient({
-  language: 'en'
-});
+let wqc = new WiseQuotesClient();
 
 /************************************************************
   Describes
