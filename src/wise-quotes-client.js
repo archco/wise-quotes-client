@@ -1,4 +1,4 @@
-const Quotes = require('../lib/quotes.json');
+const Quotes = require('../data/quotes.json');
 
 const DefaultOption = {
   language: "all"
