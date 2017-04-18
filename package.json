@@ -4,7 +4,8 @@
   "description": "The package of wise-saying and quotes. It's for browser.",
   "main": "index.js",
   "scripts": {
-    "test": "node ./node_modules/mocha/bin/mocha"
+    "test": "node ./node_modules/mocha/bin/mocha",
+    "build": "node ./node_modules/babel-cli/bin/babel src -d lib"
   },
   "repository": {
     "type": "git",
@@ -17,6 +18,8 @@
   },
   "homepage": "https://github.com/archco/wise-quotes-client#readme",
   "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-env": "^1.4.0",
     "chai": "^3.5.0",
     "mocha": "^3.2.0"
   }
