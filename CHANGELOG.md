@@ -16,5 +16,5 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 quotes count: 78
 First release.
 
-[Unreleased]: https://github.com/archco/wise-quotes/compare/v0.1.1...master
-[0.1.1]: https://github.com/archco/wise-quotes/compare/v0.1.0...v0.1.1
+[Unreleased]: https://github.com/archco/wise-quotes-client/compare/v0.1.1...master
+[0.1.1]: https://github.com/archco/wise-quotes-client/compare/v0.1.0...v0.1.1
