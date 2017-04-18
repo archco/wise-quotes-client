@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - Add new quotes data. (2017-04-12: count 105)
 
+### Changed
+- Use babel compile. #2
+
 ## 0.1.0 - 2017-04-10
 quotes count: 78
 First release.
