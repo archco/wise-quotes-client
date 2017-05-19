@@ -1,7 +1,7 @@
 const Quotes = require('../data/quotes.json');
 
 const DefaultOption = {
-  language: "all"
+  language: 'all',
 };
 
 class WiseQuotesClient {
@@ -29,7 +29,7 @@ class WiseQuotesClient {
 
   /**
    * returns a random integer between two values.
-   * 
+   *
    * @param  {Number} min  the next integer greater than min if min isn't an integer
    * @param  {Number} max  less than (but not equal to)
    * @return {Number} integer min =< value < max
@@ -66,7 +66,7 @@ class WiseQuotesClient {
         quotes.push(row);
       }
     }
-    
+
     return quotes;
   }
 }

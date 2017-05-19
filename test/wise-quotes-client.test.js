@@ -1,5 +1,5 @@
 const chai = require('chai');
-const should = chai.should();
+chai.should();
 
 // test target.
 const WiseQuotesClient = require('../index.js');
@@ -9,13 +9,14 @@ let wqc = new WiseQuotesClient();
   Describes
 *************************************************************/
 describe('WiseQuotesClient', function () {
-    
+
   describe('#constructor', function () {
-    
+
     it('should have property "option"', function () {
       // console.log(wqc.option);
       wqc.should.have.property('option');
     });
+
     it('should have property "quotes"', function () {
       // console.log(wqc.quotes.length);
       wqc.should.have.property('quotes');
@@ -26,7 +27,7 @@ describe('WiseQuotesClient', function () {
   });
 
   describe('#status', function () {
-    
+
     it('should be a string', function () {
       let str = wqc.status;
       console.log(str);
@@ -35,7 +36,7 @@ describe('WiseQuotesClient', function () {
   });
 
   describe('#read', function () {
-    
+
     it('should be a object', function () {
       let row = wqc.read(0);
       row.should.be.a('object');
@@ -43,10 +44,9 @@ describe('WiseQuotesClient', function () {
   });
 
   describe('#all', function () {
-    
+
     it('should be a array', function () {
       let rows = wqc.all();
-      // console.log(rows.length);
       rows.should.be.a('array');
     });
   });
@@ -55,7 +55,6 @@ describe('WiseQuotesClient', function () {
 
     it('should be a object', function () {
       let row = wqc.random();
-      // console.log(row);
       row.should.be.a('object');
     });
   });
