@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "node ./node_modules/mocha/bin/mocha",
-    "build": "node ./node_modules/babel-cli/bin/babel src -d lib"
+    "build": "node ./node_modules/babel-cli/bin/babel src -d lib",
+    "update": "node update-data.js"
   },
   "repository": {
     "type": "git",
@@ -18,11 +19,12 @@
   },
   "homepage": "https://github.com/archco/wise-quotes-client#readme",
   "devDependencies": {
-    "babel-cli": "^6.24.1",
-    "babel-eslint": "^7.2.3",
-    "babel-preset-env": "^1.5.2",
-    "chai": "^4.0.2",
-    "eslint": "^4.1.1",
-    "mocha": "^3.4.2"
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^8.0.1",
+    "babel-preset-env": "^1.6.1",
+    "chai": "^4.1.2",
+    "eslint": "^4.10.0",
+    "mocha": "^4.0.1",
+    "wise-quotes": "^0.2.0"
   }
 }
