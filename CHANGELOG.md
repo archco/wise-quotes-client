@@ -5,6 +5,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [0.2.0] - 2017-10-28
+quotes count: 267
+### Added
+- Add options: `includedTags` and `excludedTags`. #1
+- Add `retrieveByTagName()` method. #1
+
 ## [0.1.2] - 2017-07-02
 quotes count: 213
 
@@ -19,6 +25,7 @@ quotes count: 213
 quotes count: 78
 First release.
 
-[Unreleased]: https://github.com/archco/wise-quotes-client/compare/v0.1.2...master
+[Unreleased]: https://github.com/archco/wise-quotes-client/compare/v0.2.0...master
+[0.2.0]: https://github.com/archco/wise-quotes-client/compare/v0.1.2...v0.2.0
 [0.1.2]: https://github.com/archco/wise-quotes-client/compare/v0.1.1...v0.1.2
 [0.1.1]: https://github.com/archco/wise-quotes-client/compare/v0.1.0...v0.1.1

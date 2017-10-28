@@ -2,9 +2,14 @@ const expect = require('chai').expect;
 
 // test target.
 const WiseQuotesClient = require('../index.js');
-let wqc = new WiseQuotesClient();
+let wqc;
 
 describe('WiseQuotesClient', () => {
+  before(() => {
+    wqc = new WiseQuotesClient();
+    console.log(`count: ${wqc.quotes.length}`);
+  });
+
   describe('constructor', () => {
     it('Has property "option".', () => {
       expect(wqc).have.property('option');
