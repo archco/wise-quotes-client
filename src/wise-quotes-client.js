@@ -1,17 +1,21 @@
 const Quotes = require('../data/quotes.json');
 
-const DefaultOption = {
-  language: 'all',
-};
-
 class WiseQuotesClient {
-  constructor(option) {
-    this.option = Object.assign({}, DefaultOption, option);
-    this.quotes = this._initQuotes();
+  constructor(option = {}) {
+    this.option = Object.assign(this.getDefaultOption(), option);
+    this.quotes = this._filteredQuotes();
   }
 
   get status() {
     return `language: ${this.option.language} count: ${this.quotes.length}`;
+  }
+
+  getDefaultOption() {
+    return {
+      language: 'all',
+      includedTags: [],
+      excludedTags: [],
+    };
   }
 
   read(index) {
@@ -44,34 +48,64 @@ class WiseQuotesClient {
     return Math.floor(Math.random() * (max - min)) + min;
   }
 
-  _initQuotes() {
-    if (this.option.language == 'all') {
-      return Quotes;
-    } else if (typeof this.option.language == 'string') {
-      return this._getQuotesByLang(this.option.language);
-    } else if (Array.isArray(this.option.language)) {
-      let quotes = [];
+  _filteredQuotes() {
+    // filtering by language.
+    let quotes = this._filteringByLanguages(Quotes);
 
-      for (let lang of this.option.language) {
-        quotes = quotes.concat(this._getQuotesByLang(lang));
-      }
-
-      return quotes;
-    }
-
-    return Quotes;
-  }
-
-  _getQuotesByLang(lang) {
-    let quotes = [];
-
-    for (let row of Quotes) {
-      if (row.language == lang) {
-        quotes.push(row);
-      }
-    }
+    // filtering by tags. (inculude or exclude)
+    quotes = this._filteringByTags(quotes);
 
     return quotes;
+  }
+
+  _filteringByLanguages(quotes) {
+    if (this.option.language == 'all') {
+      return quotes;
+    } else if (typeof this.option.language == 'string') {
+      return this._quotesByLang(quotes, this.option.language);
+    } else if (Array.isArray(this.option.language)) {
+      let qs = [];
+
+      this.option.language.forEach(lang => {
+        qs = qs.concat(this._quotesByLang(quotes, lang));
+      });
+
+      return qs;
+    } else {
+      return quotes;
+    }
+  }
+
+  _filteringByTags(quotes) {
+    quotes = this._includingTags(quotes);
+    quotes = this._exculdingTags(quotes);
+    return quotes;
+  }
+
+  _quotesByLang(quotes, lang) {
+    return quotes.filter(quote => quote.language == lang);
+  }
+
+  _includingTags(quotes) {
+    if (!this.option.includedTags.length) return quotes;
+    let qs = [];
+
+    this.option.includedTags.forEach(tag => {
+      qs = qs.concat(quotes.filter(q => q.tags.includes(tag)));
+    });
+
+    return qs;
+  }
+
+  _exculdingTags(quotes) {
+    if (!this.option.excludedTags.length) return quotes;
+    let qs = quotes;
+
+    this.option.excludedTags.forEach(tag => {
+      qs = qs.filter(q => !q.tags.includes(tag));
+    });
+
+    return qs;
   }
 }
 

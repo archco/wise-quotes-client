@@ -44,9 +44,39 @@ describe('WiseQuotesClient', () => {
   describe('#retrieveByTagName', () => {
     it('Returns quotes that has given tag name.', () => {
       let quotes = wqc.retrieveByTagName('inspiration');
-      console.log(quotes);
       expect(quotes).to.be.not.empty;
       expect(quotes[0].tags).to.be.include('inspiration');
+    });
+  });
+});
+
+describe('Option Test', () => {
+  describe('language', () => {
+    it('Set a single language as string.', () => {
+      let wqc = new WiseQuotesClient({ language: 'ko' });
+      expect(wqc.random().language).to.equal('ko');
+    });
+
+    it('Set multiple languages as array.', () => {
+      let wqc = new WiseQuotesClient({ language: ['ko', 'en'] });
+      expect(wqc.random().language).to
+        .satisfy(lang => lang == 'ko' || lang == 'en');
+    });
+  });
+
+  describe('includedTags', () => {
+    it('Set quotes that has given tags.', () => {
+      let wqc = new WiseQuotesClient({ includedTags: ['love', 'inspiration'] });
+      expect(wqc.random().tags).to
+        .satisfy(tags => tags.includes('love') || tags.includes('inspiration'));
+    });
+  });
+
+  describe('excludedTags', () => {
+    it('Set quotes that does not has given tags.', () => {
+      let wqc = new WiseQuotesClient({ excludedTags: ['love', 'inspiration'] });
+      expect(wqc.random().tags).to
+        .satisfy(tags => !tags.includes('love') && !tags.includes('inspiration'));
     });
   });
 });
