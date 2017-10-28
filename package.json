@@ -6,6 +6,7 @@
   "scripts": {
     "test": "node ./node_modules/mocha/bin/mocha",
     "build": "node ./node_modules/babel-cli/bin/babel src -d lib",
+    "watch": "npm run build -- --watch",
     "update": "node update-data.js"
   },
   "repository": {

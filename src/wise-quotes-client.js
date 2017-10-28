@@ -27,6 +27,10 @@ class WiseQuotesClient {
     return this.quotes[index];
   }
 
+  retrieveByTagName(name) {
+    return this.quotes.filter(quote => quote.tags.includes(name));
+  }
+
   /**
    * returns a random integer between two values.
    *

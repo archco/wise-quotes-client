@@ -40,4 +40,13 @@ describe('WiseQuotesClient', () => {
       expect(wqc.random()).to.be.a('object');
     });
   });
+
+  describe('#retrieveByTagName', () => {
+    it('Returns quotes that has given tag name.', () => {
+      let quotes = wqc.retrieveByTagName('inspiration');
+      console.log(quotes);
+      expect(quotes).to.be.not.empty;
+      expect(quotes[0].tags).to.be.include('inspiration');
+    });
+  });
 });
