@@ -1,61 +1,43 @@
-const chai = require('chai');
-chai.should();
+const expect = require('chai').expect;
 
 // test target.
 const WiseQuotesClient = require('../index.js');
 let wqc = new WiseQuotesClient();
 
-/************************************************************
-  Describes
-*************************************************************/
-describe('WiseQuotesClient', function () {
-
-  describe('#constructor', function () {
-
-    it('should have property "option"', function () {
-      // console.log(wqc.option);
-      wqc.should.have.property('option');
+describe('WiseQuotesClient', () => {
+  describe('constructor', () => {
+    it('Has property "option".', () => {
+      expect(wqc).have.property('option');
     });
 
-    it('should have property "quotes"', function () {
-      // console.log(wqc.quotes.length);
-      wqc.should.have.property('quotes');
-    });
-    /*it('"option.language" should equal "all"', function () {
-      wqc.option.language.should.equal(['ko', 'ja']);
-    });*/
-  });
-
-  describe('#status', function () {
-
-    it('should be a string', function () {
-      let str = wqc.status;
-      console.log(str);
-      str.should.be.a('string');
+    it('Has property "quotes".', () => {
+      expect(wqc).have.property('quotes');
     });
   });
 
-  describe('#read', function () {
-
-    it('should be a object', function () {
-      let row = wqc.read(0);
-      row.should.be.a('object');
+  describe('#status', () => {
+    it('It\'s getter. and it will return string.', () => {
+      expect(wqc.status).to.be.a('string');
     });
   });
 
-  describe('#all', function () {
-
-    it('should be a array', function () {
-      let rows = wqc.all();
-      rows.should.be.a('array');
+  describe('#read', () => {
+    it('Returns quote as object.', () => {
+      expect(wqc.read(0)).to.be.a('object');
     });
   });
 
-  describe('#random', function () {
+  describe('#all', () => {
+    it('Returns all quotes to array.', () => {
+      let quotes = wqc.all();
+      expect(quotes).to.be.a('array');
+      expect(quotes).to.be.not.empty;
+    });
+  });
 
-    it('should be a object', function () {
-      let row = wqc.random();
-      row.should.be.a('object');
+  describe('#random', () => {
+    it('Returns random quote to object.', () => {
+      expect(wqc.random()).to.be.a('object');
     });
   });
 });
