@@ -1,11 +1,13 @@
 import Quotes, { Quote } from './quotes';
 import { randomInt } from './utils';
 
-interface Options {
+export interface Options {
   language?: string|string[];
   includedTags?: string[];
   excludedTags?: string[];
 }
+
+export { Quote };
 
 export default class WiseQuotesClient {
   options: Options;

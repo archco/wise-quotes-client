@@ -1,0 +1,11 @@
+{
+  "markdownlint.config": {
+    "MD001": false,
+    "MD009": false,
+    "MD024": false,
+  },
+  "cSpell.words": [
+    "archco",
+    "rowid"
+  ],
+}
