@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <h1>WiseQuotesClient</h1>
+  <blockquote>
+    <p id="content"></p>
+    <cite id="author"></cite>
+  </blockquote>
+
+  <script src="../dist/wise-quotes-client.min.js"></script>
+  <script>
+    const WiseQuotes = WiseQuotesClient.default;
+    const wq = new WiseQuotes({ language: 'en' });
+    const quote = wq.random();
+
+    document.querySelector('#author').textContent = `- ${quote.author}`;
+    document.querySelector('#content').textContent = quote.content;
+  </script>
+</body>
+</html>

@@ -1,6 +1,6 @@
 {
   "name": "wise-quotes-client",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "The package of wise-saying and quotes. It's for browser.",
   "main": "dist/wise-quotes-client.js",
   "types": "index.d.ts",
